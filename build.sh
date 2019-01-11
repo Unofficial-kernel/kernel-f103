@@ -57,9 +57,9 @@ fi
 function BUILD() {
         mkdir -p out
         echo "${PURP} READING DEFCONFIG..."
-        make O=out/ TARGET_ARCH=arm64 rlk6737m_open_n_defconfig | tee -a defconfig.log
+        make O=out/ ARCH=arm64 rlk6737m_open_n_defconfig | tee -a defconfig.log
         echo "${YLW} BUILDING KERNEL..." 
-        make -j$(nproc --all) O=out/ TARGET_ARCH=arm64 | tee -a Kernel.log
+        make -j$(nproc --all) O=out/ ARCH=arm64 | tee -a Kernel.log
         OIMAGE=out/arch/arm64/boot/Image.gz-dtb
 }
 function CHECK() {
