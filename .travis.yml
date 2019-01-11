@@ -1,7 +1,23 @@
+language: C
+dist: trusty
+
 sudo: required
-language: c
 
 script:
-  - rm -rf *.log *Image* gcc *.txt *zImage
-  - chmod +x build.sh
-  - bash build.sh
+  - rm -rf *.log *zImage* gcc
+  - chmod +x b.sh
+  - bash b.sh
+  
+  after_success:
+  - cp arch/arm/boot/Image.gz-dtb gionee-zImage
+
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key: "$GITHUB_API_KEY"
+  file_glob: true
+  file: gionee-zImage*
+  on:
+    tags: true
+    repo: Unofficial-kernel/kernel_GBL7360A
+    branch: master
