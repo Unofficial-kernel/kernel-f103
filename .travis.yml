@@ -6,7 +6,7 @@ sudo: required
 script:
   - rm -rf *.log *zImage* gcc
   - chmod +x b.sh
-  - bash b.sh
+  - bash build.sh
   
   after_success:
   - cp arch/arm/boot/Image.gz-dtb gionee-zImage
