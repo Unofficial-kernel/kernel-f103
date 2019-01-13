@@ -2,6 +2,7 @@
 
 
 #include "mt6735.dtsi"
+#include "cust.dtsi"
 #include <dt-bindings/lcm/tm_ft8606.dtsi
 
 // magic:		0xd00dfeed
